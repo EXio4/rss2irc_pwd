@@ -1,0 +1,727 @@
+rss2irc notes
+
+* backlog
+** not showing all items from this acm feed ?
+$ curl -s http://queue.acm.org/rss/feeds/queuecontent.xml | grep '<title>'
+    <title>ACM Queue - All Queue Content</title>
+      <title>The Curse of the Excluded Middle</title>
+      <title>Forked Over</title>
+      <title>Don't Settle for Eventual Consistency</title>
+      <title>Please Put OpenSSL Out of Its Misery</title>
+      <title>A Primer on Provenance</title>
+      <title>Multipath TCP</title>
+      <title>Major-league SEMAT: Why Should an Executive Care?</title>
+      <title>The Logic of Logging</title>
+      <title>Eventually Consistent: Not What You Were Expecting?</title>
+      <title>Scaling Existing Lock-based Applications with Lock Elision</title>
+      <title>Rate-limiting State</title>
+      <title>The API Performance Contract</title>
+$ rss2irc -r10 -n1 http://queue.acm.org/rss/feeds/queuecontent.xml
+2014-04-29 12:00:11 PDT:  connecting to (simulated)
+2014-04-29 12:00:11 PDT: connected.
+2014-04-29 12:00:11 PDT: Polling http://queue.acm.org/rss/feeds/queuecontent.xml every 5 minutes
+Scaling Existing Lock-based Applications with Lock Elision
+Eventually Consistent: Not What You Were Expecting?
+The Logic of Logging
+Major-league SEMAT: Why Should an Executive Care?
+Multipath TCP
+2014-04-29 12:00:12 PDT: normal termination
+
+** all items re-announced when feed comes back from being down ?
+2012-08-05 12:50:29 PDT: Polling http://hub.darcs.net/darcs/darcs-screened/changes/atom every 5 minutes
+2012-08-05 12:50:29 PDT: Error (connect: does not exist (Connection refused)), retrying in 5 minutes
+feed items, in feed order: 0
+announceable items, oldest first: 0
+successful consecutive polls, items announced:          1          0
+PONG zelazny.freenode.net
+PONG zelazny.freenode.net
+2012-08-05 12:55:29 PDT: polling http://hub.darcs.net/darcs/darcs-screened/changes/atom
+2012-08-05 12:55:31 PDT: ========== FEED CONTENT FROM http://hub.darcs.net/darcs/darcs-screened/changes/atom :
+...
+=============================================
+
+feed items, in feed order: 30
+ 2012-08-05T16:52:52Z           Tidy/Style/Haddock URL/Request                                               
+ 2012-08-05T15:43:15Z           A few more comments and Haddock about the pending patch.                     
+ 2012-08-05T15:41:57Z           Rename handlePendForAdd to tentativelyRemoveFromPending                      
+ 2012-08-05T15:41:55Z           Tidy up pending formatting and hlintesque issues more.                       
+ 2012-08-05T15:37:08Z           Fix tests that were broken by send --mail UI change.                         
+ 2012-08-05T15:32:59Z           Remove some duplicate code in URL.hs                                         
+ 2012-08-05T15:32:57Z           Tidy/Style URL.hs                                                            
+ 2012-08-05T13:46:40Z           Move download filename creation into separate function in URL                
+ 2012-08-04T19:31:54Z           Commend and haddock a tiny bit of pending patch code.                        
+ 2012-08-04T19:31:52Z           Tidy Darcs.Repository.Internal.siftForPending code style.                    
+ 2012-08-04T19:19:27Z           Try to comment and Haddock some prim patch stuff.                            
+ 2012-08-04T18:33:34Z           Tighten up pending flag pattern matching.                                    
+ 2012-08-02T16:49:43Z           Accept issue2219: some issues with the no-working-dir flag                   
+ 2012-06-18T19:45:27Z           Resolve issue2204: do not send mail by default.                              
+ 2012-07-25T21:08:36Z           remove GNUmakefile duplicate line                                            
+ 2012-07-21T15:57:27Z           accept issue2213 - last regrets doesn't respect dependencies in reverse order
+ 2012-07-21T14:38:55Z           Collect all applications of ./ ++ to one place                               
+ 2012-07-16T21:01:49Z           Fix annotate on directories                                                  
+ 2012-07-10T16:03:54Z           Add failing test for issue2208                                               
+ 2012-07-18T20:59:23Z           Add failing test for issue2212                                               
+ 2012-07-15T01:51:56Z           Refactor --patch X to use same code as --match 'name X'                      
+ 2012-07-18T19:16:39Z           Remove duplicate issue2066 test                                              
+ 2012-07-16T12:31:38Z           Fix set-default-hint.sh, send without -O will fail without sendmail.         
+ 2012-07-16T12:23:10Z           Fix issue1344 test to cope with set -o pipefail.                             
+ 2012-07-16T11:28:28Z           Do not insist that echo and cat need to live in /bin.                        
+ 2012-07-15T17:01:37Z           Replace test_stub.hs with an #ifdef. Fixes Cabal's sdist.                    
+ 2012-07-14T22:19:35Z           reintroduce GNUmakefile for make tags                                        
+ 2012-07-12T18:44:02Z           rm no longer used UI flags AnyOrder and NoUpdateWorking                      
+ 2012-07-10T15:39:36Z           Fix an implementation style wart in Replace, from fix for issue2125.         
+ 2012-07-09T22:49:32Z           update darcs wiki repository url                                             
+#darcs :ACTION update darcs wiki repository url (gh)
+announceable items, oldest first: 30
+ 2012-07-09T22:49:32Z           update darcs wiki repository url                                             
+ 2012-07-10T15:39:36Z           Fix an implementation style wart in Replace, from fix for issue2125.         
+ 2012-07-12T18:44:02Z           rm no longer used UI flags AnyOrder and NoUpdateWorking                      
+ 2012-07-14T22:19:35Z           reintroduce GNUmakefile for make tags                                        
+ 2012-07-15T17:01:37Z           Replace test_stub.hs with an #ifdef. Fixes Cabal's sdist.                    
+ 2012-07-16T11:28:28Z           Do not insist that echo and cat need to live in /bin.                        
+ 2012-07-16T12:23:10Z           Fix issue1344 test to cope with set -o pipefail.                             
+ 2012-07-16T12:31:38Z           Fix set-default-hint.sh, send without -O will fail without sendmail.         
+ 2012-07-18T19:16:39Z           Remove duplicate issue2066 test                                              
+ 2012-07-15T01:51:56Z           Refactor --patch X to use same code as --match 'name X'                      
+ 2012-07-18T20:59:23Z           Add failing test for issue2212                                               
+ 2012-07-10T16:03:54Z           Add failing test for issue2208                                               
+ 2012-07-16T21:01:49Z           Fix annotate on directories                                                  
+ 2012-07-21T14:38:55Z           Collect all applications of ./ ++ to one place                               
+ 2012-07-21T15:57:27Z           accept issue2213 - last regrets doesn't respect dependencies in reverse order
+ 2012-07-25T21:08:36Z           remove GNUmakefile duplicate line                                            
+ 2012-06-18T19:45:27Z           Resolve issue2204: do not send mail by default.                              
+ 2012-08-02T16:49:43Z           Accept issue2219: some issues with the no-working-dir flag                   
+ 2012-08-04T18:33:34Z           Tighten up pending flag pattern matching.                                    
+ 2012-08-04T19:19:27Z           Try to comment and Haddock some prim patch stuff.                            
+ 2012-08-04T19:31:52Z           Tidy Darcs.Repository.Internal.siftForPending code style.                    
+ 2012-08-04T19:31:54Z           Commend and haddock a tiny bit of pending patch code.                        
+ 2012-08-05T13:46:40Z           Move download filename creation into separate function in URL                
+ 2012-08-05T15:32:57Z           Tidy/Style URL.hs                                                            
+ 2012-08-05T15:32:59Z           Remove some duplicate code in URL.hs                                         
+ 2012-08-05T15:37:08Z           Fix tests that were broken by send --mail UI change.                         
+ 2012-08-05T15:41:55Z           Tidy up pending formatting and hlintesque issues more.                       
+ 2012-08-05T15:41:57Z           Rename handlePendForAdd to tentativelyRemoveFromPending                      
+ 2012-08-05T15:43:15Z           A few more comments and Haddock about the pending patch.                     
+ 2012-08-05T16:52:52Z           Tidy/Style/Haddock URL/Request                                               
+
+** memory leakage
+*** test in production with old and new feed
+**** test performance
+***** old & new builds, hackage & craigslist 2012/1/11
+****** near start
+PID USER      PR  NI  VIRT  RES  SHR S %CPU %MEM    TIME+  COMMAND
+5047 simon     20   0 67200  32m 4420 S    0  3.2   0:00.54 /usr/local/bin/rss2irc http://losangeles.craigslist.org/cpg/index.rss rss2irctestbot2@irc.freenode.net/smtest -i1 --author --link --replace (&.*?;|<.*?>)/ -q                 
+5084 simon     20   0 52064  16m 5512 S    0  1.7   0:00.49 /repos/rss2irc/rss2irc http://losangeles.craigslist.org/cpg/index.rss rss2irctestbot@irc.freenode.net/smtest -i1 --author --link --replace (&.*?;|<.*?>)/ -q                  
+4369 root      20   0 43796  10m 4480 S    0  1.0   0:00.54 /usr/local/bin/rss2irc --debug-feed --debug-irc -i5 http://hackage.haskell.org/packages/archive/recent.rss irc.freenode.net/haskell/hackagebot --description --link --html --r
+4375 root      20   0 42848 7556 5592 S    0  0.7   0:00.34 /repos/rss2irc/rss2irc --debug-feed --debug-irc -i5 http://hackage.haskell.org/packages/archive/recent.rss irc.freenode.net/smtest/hackagebot2 --description --html --replace 
+
+*** get new feed published
+*** commit
+*** publish new rss2irc
+** switch to http-conduit-downloader ?
+** HTTP status line not enough bytes
+2012-02-23 03:14:17 PST: polling http://joyful.com/darcsden/simon/hledger/changes/atom
+feed items, in feed order: 30
+ 2012-02-02T06:14:10Z           fix release note                                                                       
+ 2012-02-02T05:37:08Z           TAG 0.17.0                                                                             
+ 2012-02-02T05:37:02Z           bump version                                                                           
+ 2012-02-02T05:27:07Z           fix import warning                                                                     
+ 2012-01-31T06:01:31Z           refactor: update version number handling                                               
+ 2012-01-31T05:23:25Z           docs: draft release notes                                                              
+ 2012-01-31T05:18:18Z           bump version to "0.17 alpha"                                                           
+ 2012-01-31T05:17:15Z           tools: fixes for version updating in web pages                                         
+ 2012-01-30T17:18:46Z           possible add test                                                                      
+ 2012-01-30T17:18:32Z           convert test tweaks                                                                    
+ 2012-01-30T17:16:39Z           examples/ -> extra/                                                                    
+ 2012-01-30T05:03:41Z           notes                                                                                  
+ 2012-01-30T04:22:11Z           begin demoting hledger-vty and hledger-chart to unmaintained "extras" status           
+ 2012-01-30T04:21:03Z           update tested-with fields                                                              
+ 2012-01-30T04:30:41Z           tools: fix make clean                                                                  
+ 2012-01-29T21:32:07Z           web: allow template-haskell 2.6.0.0                                                    
+ 2012-01-29T18:52:31Z           tools: make clean should not remove virthualenv files                                  
+ 2012-01-29T18:36:51Z           tools: update/simplify make install                                                    
+ 2012-01-22T21:56:20Z           docs: clarify transaction prices vs historical prices                                  
+ 2012-01-22T20:39:11Z           parsing: -B/--cost now ignores P historical prices, like ledger                        
+ 2012-01-12T15:44:32Z           web: dodge a yesod-core regression breaking add form redirect (#53)                    
+ 2012-01-05T18:25:15Z           support and require latest cmdargs                                                     
+ 2012-01-04T12:01:21Z           tools: fix make ghci                                                                   
+ 2012-01-04T11:35:39Z           web: add form should reject blank account names (#81)                                  
+ 2012-01-03T13:00:28Z           fix missing chart regression (#72)                                                     
+ 2012-01-03T12:43:30Z           web: avoid problematic redirect after submitting the add form                          
+ 2012-01-03T12:14:22Z           web: prevent flot js error which broke add form fields after adding a transaction (#72)
+ 2012-01-03T12:12:37Z           less obscure error when the journal file path contains a tilde                         
+ 2012-01-03T11:00:35Z           bump cmdargs upper bound in other places                                               
+ 2012-01-03T10:46:39Z           web: fix $ quoting                                                                     
+announceable items, oldest first: 0
+successful consecutive polls, items announced:        348          0
+2012-02-23 03:16:04 PST: <-PING :asimov.freenode.net
+2012-02-23 03:16:04 PST: ->PONG asimov.freenode.net
+2012-02-23 03:18:40 PST: <-PING :asimov.freenode.net
+2012-02-23 03:18:40 PST: ->PONG asimov.freenode.net
+2012-02-23 03:19:17 PST: polling http://joyful.com/darcsden/simon/hledger/changes/atom
+2012-02-23 03:22:13 PST: <-PING :asimov.freenode.net
+2012-02-23 03:22:13 PST: ->PONG asimov.freenode.net
+rss2irc-production: ParseError {errorContexts = ["HTTP status line","demandInput"], errorMessage = "not enough bytes"}
+
+** excessive GC with both implementations
+*** heap profile
+** excessive GC stats reported by +RTS -s
+*** get time & allocation profile
+** feed reader thread can still die or stop without terminating app
+*** 2012/1/13 netsplit/disconnect/8-day outage
+**** #haskell log
+13:36:06 * hackagebot statistics 0.10.1.0 - A library of statistical types, data, and functions  http://hackage.haskell.org/package/statistics-0.10.1.0 (BryanOSullivan)
+...
+15:03:16 <monochrom> up to a certain version of GHC, "Just blah" is two pointers, one for "Just", one for "blah". the optimization later: observing that pointers have to be 32-bit aligned or 64-bit aligned anyway, we have 2-3 bits in the first pointer for our own use, and so 1 bit is used for "thunk vs whnf", and the other 1-2 bits are for tag.
+15:03:21 --- quit: mgsloan (*.net *.split)
+15:03:21 --- quit: baldo (*.net *.split)
+15:03:21 --- quit: zachk (*.net *.split)
+15:03:21 --- quit: gbeshers (*.net *.split)
+15:03:21 --- quit: gregATio (*.net *.split)
+15:03:21 --- quit: tensorpudding (*.net *.split)
+15:03:21 --- quit: papermachine (*.net *.split)
+15:03:21 --- quit: juliohm (*.net *.split)
+15:03:22 --- quit: erus` (*.net *.split)
+15:03:22 --- quit: ftrvxmtrx_ (*.net *.split)
+15:03:22 --- quit: synonymous (*.net *.split)
+15:03:22 --- quit: ksion (*.net *.split)
+15:03:22 --- quit: fridim (*.net *.split)
+15:03:22 --- quit: eb4890 (*.net *.split)
+15:03:22 --- quit: doserj (*.net *.split)
+15:03:22 --- quit: path[l] (*.net *.split)
+15:03:22 --- quit: psacvdf (*.net *.split)
+15:03:22 --- quit: linduxed (*.net *.split)
+15:03:22 --- quit: eyebloom (*.net *.split)
+15:03:22 --- quit: hiptobecubic^ (*.net *.split)
+15:03:22 --- quit: ceii_ (*.net *.split)
+15:03:22 --- quit: kk` (*.net *.split)
+15:03:22 --- quit: schlicht (*.net *.split)
+15:03:22 --- quit: Zamarok1 (*.net *.split)
+15:03:22 --- quit: dylukes (*.net *.split)
+15:03:22 --- quit: plat0 (*.net *.split)
+15:03:22 --- quit: augur (*.net *.split)
+15:03:22 --- quit: jonke (*.net *.split)
+15:03:22 --- quit: xsysstar (*.net *.split)
+15:03:22 --- quit: yoonkn (*.net *.split)
+15:03:22 --- quit: enobscuratus (*.net *.split)
+15:03:22 --- quit: jaredj (*.net *.split)
+15:03:22 --- quit: etuleu (*.net *.split)
+15:03:22 --- quit: setmeaway (*.net *.split)
+15:03:22 --- quit: chee1_ (*.net *.split)
+15:03:22 --- quit: nwf_ (*.net *.split)
+15:03:22 --- quit: ajhager (*.net *.split)
+15:03:22 --- quit: overrosy (*.net *.split)
+15:03:22 --- quit: jakky (*.net *.split)
+15:03:22 --- quit: Philonous_ (*.net *.split)
+15:03:22 --- quit: xintron (*.net *.split)
+15:03:22 --- quit: hackagebot (*.net *.split)
+
+**** hackagebot log
+2012-01-13 15:40:26 PST: <-:hackagebot!~rss2irc@li229-222.members.linode.com QUIT :Ping timeout: 255 seconds
+2012-01-13 15:40:26 PST: <-ERROR :Closing Link: li229-222.members.linode.com (Ping timeout: 255 seconds)
+2012-01-13 15:40:26 PST: disconnecting from irc.freenode.net
+
+2012-01-13 15:40:27 PST: <socket: 7>: hGetLine: end of file
+**** supervisord log
+2012-01-08 22:42:09,788 INFO exited: rss2irc-hackagebot (exit status 1; not expected)
+2012-01-08 22:42:10,862 INFO spawned: 'rss2irc-hackagebot' with pid 14984
+2012-01-08 22:42:12,285 INFO exited: rss2irc-hackagebot (exit status 1; not expected)
+2012-01-08 22:42:13,287 INFO gave up: rss2irc-hackagebot entered FATAL state, too many start retries too quickly
+2012-01-08 23:01:01,719 INFO spawned: 'rss2irc-hackagebot' with pid 15424
+2012-01-08 23:01:04,428 INFO success: rss2irc-hackagebot entered RUNNING state, process has stayed up for > than 2 seconds (startsecs)
+...
+2012-01-11 05:28:07,994 INFO stopped: rss2irc-hackagebot (terminated by SIGTERM)
+2012-01-11 05:28:08,491 INFO spawned: 'rss2irc-hackagebot' with pid 4369
+2012-01-11 05:28:10,500 INFO success: rss2irc-hackagebot entered RUNNING state, process has stayed up for > than 2 seconds (startsecs)
+...
+2012-01-13 15:40:27,520 INFO exited: rss2irc-hackagebot (exit status 1; not expected)
+2012-01-13 15:40:28,549 INFO spawnerr: can't find command '/usr/local/bin/rss2irc'
+2012-01-13 15:40:29,551 INFO gave up: rss2irc-hackagebot entered FATAL state, too many start retries too quickly
+...
+2012-01-22 12:28:48,486 INFO spawned: 'rss2irc-hackagebot' with pid 22177
+2012-01-22 12:28:50,660 INFO success: rss2irc-hackagebot entered RUNNING state, process has stayed up for > than 2 seconds (startsecs)
+
+*** 2011/12/9
+2011-12-09 21:58:56 PST: polling http://joyful.com/darcsden/simon/hledger/changes/atom
+feed items, in feed order: 30
+ 2011-12-08T23:26:10Z           docs: rewrite prices section
+ 2011-11-01T05:44:48Z           site: HCAR entry
+ 2011-11-01T05:44:24Z           site: announcement link
+ 2011-10-26T17:32:11Z           TAG hledger-web-0.16.5
+ 2011-10-26T17:31:34Z           bump version, relnotes for hledger-web bugfix
+ 2011-10-26T17:30:17Z           web: fix ghc 6.12 incompatibility in Settings.hs
+ 2011-10-24T17:50:48Z           TAG hledger-web-0.16.4
+ 2011-10-24T17:50:32Z           web: bump version & relnotes for a bugfix release
+ 2011-10-19T20:00:08Z           tools: one more make fix
+ 2011-10-19T19:57:12Z           web: clean up name clash with Yesod.Core
+ 2011-10-19T19:55:01Z           tools: adapt makefile for cabal-file-th, builds now happen from package dirs
+ 2011-10-19T19:53:42Z           use cabal-file-th to get executable name and version from cabal files
+ 2011-10-09T23:35:08Z           site: more logical grouping of dev links/api search form
+ 2011-10-09T18:56:51Z           docs: update HCAR for the november report
+ 2011-10-09T17:40:57Z           docs: include HCAR entries on NEWS, keep only last HCAR entry's source
+ 2011-10-05T00:57:50Z           relnotes
+ 2011-10-05T00:51:23Z           TAG hledger-web-0.16.3
+ 2011-10-05T00:49:06Z           bump hledger-web version
+ 2011-10-05T00:48:53Z           web: another fix for cabal builds, disable favicon.ico since it's not easily embeddable
+ 2011-10-05T00:51:09Z           TAG hledger-web-0.16.2
+ 2011-10-05T00:28:18Z           bump just hledger-web version
+ 2011-10-05T00:18:30Z           web: more cabal extra-source-files fixes
+ 2011-10-05T00:50:21Z           TAG 0.16.1
+ 2011-10-04T23:59:05Z           relnotes
+ 2011-10-04T23:53:50Z           bump version
+ 2011-10-04T23:48:06Z           docs: note hledger-web build flags
+ 2011-10-04T23:39:53Z           show correct line number for posting parse errors (#67)
+ 2011-10-04T23:02:57Z           web: fewer build warnings in production mode, add a threaded flag for debian (#68)
+ 2011-10-04T22:45:45Z           web: declare static files as extra-source-files for cabal (#63)
+ 2011-10-04T22:44:39Z           web: simplify static path definitions
+announceable items, oldest first: 0
+successful consecutive polls, items announced:        367          1
+2011-12-09 22:00:54 PST: <-PING :pratchett.freenode.net
+2011-12-09 22:00:54 PST: ->PONG pratchett.freenode.net
+2011-12-09 22:03:01 PST: <-PING :pratchett.freenode.net
+2011-12-09 22:03:01 PST: ->PONG pratchett.freenode.net
+2011-12-09 22:07:10 PST: polling http://joyful.com/darcsden/simon/hledger/changes/atom
+2011-12-09 22:07:10 PST: <-PING :pratchett.freenode.net
+2011-12-09 22:07:10 PST: ->PONG pratchett.freenode.net
+rss2irc: ParseError {errorContexts = ["HTTP status line","demandInput"], errorMessage = "not enough bytes"}
+** reannouncing updated old feed items
+*** stack overflow answered questions reappearing
+**** summary
+used updated instead of published:
+        <published>2011-10-16T20:51:27Z</published>
+        <updated>2011-10-29T00:25:03Z</updated>
+
+**** announcement
+<haskellsobot> Beginner Haskell problems (No instance for ... arising from)                                                                                                                                                                 
+               (cgag)                                                                                                                                                                                                                       
+               http://stackoverflow.com/questions/7787238/beginner-haskell-problems-no-instance-for-arising-from
+
+**** debug log
+2011-10-28 17:01:23 PDT: polling http://stackoverflow.com/feeds/tag/haskell
+feed items, in feed order: 30
+ 2011-10-28T20:00:37Z           FreeGlut does not work in ghci
+ 2011-10-28T19:52:35Z           Where do I save my Haskell "modules"?
+ 2011-10-28T19:22:01Z           Haskell: Conditionally execute external process with Maybe FilePath
+ 2011-10-28T18:17:50Z           How can I tell which libstdc++ double-conversion wants?
+ 2011-10-28T17:17:48Z           GCF/LCM in Haskell
+ 2011-10-28T15:11:13Z           Haskell: iterate in State, how to force the behaviour I want?
+ 2011-10-28T14:56:09Z           Meaning of Haskell exceptions
+ 2011-10-28T12:23:55Z           Haskell beginner: Data decl. errors
+ 2011-10-28T12:10:18Z           How can I ensure amortized O(n) concatenation from Data.Vector?
+ 2011-10-28T11:43:04Z           How to handle multiple windows and single data structure in reactive-banana
+ 2011-10-28T11:36:13Z           Making Vector.Generic an instance of Functor (and other type-classes
+ 2011-10-28T09:40:18Z           Why is it faster to sum a Data.Sequence by divide-and-conquer, even with no parallelism?
+ 2011-10-28T08:33:05Z           haskell -- odd ambiguous type variable error message for code in "where" statement with TypeFamilies extension
+ 2011-10-28T06:47:16Z           Haskell autocompletion in GNU/Emacs
+ 2011-10-28T06:17:05Z           Bit Size of GHC's Int Type
+ 2011-10-27T23:58:57Z           Space leak only in certain cases in GHC interpreter when doing: concat <some list> !! n
+ 2011-10-27T23:49:56Z           Expression evaluation mode in haskell for scripting
+ 2011-10-27T21:16:10Z           Haskell for defining a programming language
+ 2011-10-27T21:11:45Z           Sigma sign in haskell
+ 2011-10-27T21:03:45Z           How to make my Haskell program faster? Comparison with C
+ 2011-10-27T20:14:03Z           What are the benefits of applicative parsing over monadic parsing?
+ 2011-10-27T18:41:40Z           How to define an algebraic data type
+ 2011-10-27T18:08:23Z           Does Leksah have hlint, hoogle integration?
+ 2011-10-27T15:57:16Z           How do I generate a list like this
+ 2011-10-27T15:10:20Z           Algorithm for type checking ML-like pattern matching?
+ 2011-10-27T14:29:39Z           Haskell: Is (MonadPlus m => Bool -> a -> m a) not useful?
+ 2011-10-27T13:24:33Z           Haskell, difference between type and data type?
+ 2011-10-27T11:46:38Z           Haskell program to remove comments
+ 2011-10-27T10:01:10Z           Haskell: function to accept random Int
+ 2011-10-27T10:00:24Z           Calling Haskell FFI Function Ptrs from C
+announceable items, oldest first: 0
+successful consecutive polls, items announced:          7          0
+2011-10-28 17:31:24 PDT: polling http://stackoverflow.com/feeds/tag/haskell
+2011-10-28 17:31:24 PDT: sent 0 messages in this batch, sending next
+feed items, in feed order: 30
+ 2011-10-29T00:25:03Z           Beginner Haskell problems (No instance for ... arising from)
+ 2011-10-28T20:00:37Z           FreeGlut does not work in ghci
+ 2011-10-28T19:52:35Z           Where do I save my Haskell "modules"?
+ 2011-10-28T19:22:01Z           Haskell: Conditionally execute external process with Maybe FilePath
+ 2011-10-28T18:17:50Z           How can I tell which libstdc++ double-conversion wants?
+ 2011-10-28T17:17:48Z           GCF/LCM in Haskell
+ 2011-10-28T15:11:13Z           Haskell: iterate in State, how to force the behaviour I want?
+ 2011-10-28T14:56:09Z           Meaning of Haskell exceptions
+ 2011-10-28T12:23:55Z           Haskell beginner: Data decl. errors
+ 2011-10-28T12:10:18Z           How can I ensure amortized O(n) concatenation from Data.Vector?
+ 2011-10-28T11:43:04Z           How to handle multiple windows and single data structure in reactive-banana
+ 2011-10-28T11:36:13Z           Making Vector.Generic an instance of Functor (and other type-classes
+ 2011-10-28T09:40:18Z           Why is it faster to sum a Data.Sequence by divide-and-conquer, even with no parallelism?
+ 2011-10-28T08:33:05Z           haskell -- odd ambiguous type variable error message for code in "where" statement with TypeFamilies extension
+ 2011-10-28T06:47:16Z           Haskell autocompletion in GNU/Emacs
+ 2011-10-28T06:17:05Z           Bit Size of GHC's Int Type
+ 2011-10-27T23:58:57Z           Space leak only in certain cases in GHC interpreter when doing: concat <some list> !! n
+ 2011-10-27T23:49:56Z           Expression evaluation mode in haskell for scripting
+ 2011-10-27T21:16:10Z           Haskell for defining a programming language
+ 2011-10-27T21:11:45Z           Sigma sign in haskell
+ 2011-10-27T21:03:45Z           How to make my Haskell program faster? Comparison with C
+ 2011-10-27T20:14:03Z           What are the benefits of applicative parsing over monadic parsing?
+ 2011-10-27T18:41:40Z           How to define an algebraic data type
+ 2011-10-27T18:08:23Z           Does Leksah have hlint, hoogle integration?
+ 2011-10-27T15:57:16Z           How do I generate a list like this
+ 2011-10-27T15:10:20Z           Algorithm for type checking ML-like pattern matching?
+ 2011-10-27T14:29:39Z           Haskell: Is (MonadPlus m => Bool -> a -> m a) not useful?
+ 2011-10-27T13:24:33Z           Haskell, difference between type and data type?
+ 2011-10-27T11:46:38Z           Haskell program to remove comments
+ 2011-10-27T10:01:10Z           Haskell: function to accept random Int
+announceable items, oldest first: 1
+ 2011-10-29T00:25:03Z           Beginner Haskell problems (No instance for ... arising from)
+successful consecutive polls, items announced:          8          1
+
+**** feed
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule" xmlns:re="http://purl.org/atompub/rank/1.0">
+    <title type="text">active questions tagged haskell - Stack Overflow</title>
+    <link rel="self" href="http://stackoverflow.com/feeds/tag/haskell" type="application/atom+xml" />
+    <link rel="alternate" href="http://stackoverflow.com/questions/tagged/?tagnames=haskell&amp;sort=active" type="text/html" />
+    <subtitle>most recent 30 from stackoverflow.com</subtitle>
+    <updated>2011-10-29T00:55:47Z</updated>
+    <id>http://stackoverflow.com/feeds/tag/haskell</id>
+    <creativeCommons:license>http://www.creativecommons.org/licenses/by-sa/3.0/rdf</creativeCommons:license> 
+    <entry>
+        <id>http://stackoverflow.com/q/7787238</id>
+        <re:rank scheme="http://stackoverflow.com">2</re:rank>
+        <title type="text">Beginner Haskell problems (No instance for ... arising from)</title>
+        <category scheme="http://stackoverflow.com/feeds/tag/haskell/tags" term="haskell"/>
+        <author>
+            <name>cgag</name>
+            <uri>http://stackoverflow.com/users/982428</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/7787238/beginner-haskell-problems-no-instance-for-arising-from" />
+        <published>2011-10-16T20:51:27Z</published>
+        <updated>2011-10-29T00:25:03Z</updated>
+        <summary type="html">
+            &lt;p&gt;I recently started learning Haskell and I&#39;m trying to rewrite something I did for an interview   in python in Haskell.  I&#39;m trying to convert a string from camel case to underscore separated (&quot;myVariableName&quot; -&gt; &quot;my_variable_name&quot;), and also throw an error if the first character is upper case.&lt;/p&gt;
+
+&lt;p&gt;Here&#39;s what I have:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import qualified Data.Char as Char
+
+translate_java :: String -&amp;gt; String
+translate_java xs = translate_helper $ enumerate xs
+    where 
+        translate_helper [] = []
+        translate_helper ((a, num):xs)
+            | num == 1 and Char.isUpper a = error &quot;cannot start with upper&quot;
+            | Char.isUpper a              = &#39;_&#39; : Char.toLower a : translate_helper xs
+            | otherwise                   = a : translate_helper xs
+
+
+enumerate :: (Num b, Enum b) =&amp;gt; [a] -&amp;gt; [(a,b)]
+enumerate xs = zip xs [1..]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I realize It&#39;s pretty likely I&#39;m going about this in a weird way, and I&#39;d love advice about better ways to implement this, but I&#39;d like to get this to compile as well.  Here&#39;s the error I&#39;m getting now:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Prelude&amp;gt; :r
+[1 of 1] Compiling Main             ( translate.hs, interpreted )
+
+translate.hs:4:20:
+    No instance for (Num
+                       (([Bool] -&amp;gt; Bool) -&amp;gt; (Char -&amp;gt; Bool) -&amp;gt; Char -&amp;gt; t))
+      arising from a use of `translate_helper&#39; at translate.hs:4:20-35
+    Possible fix:
+      add an instance declaration for
+      (Num (([Bool] -&amp;gt; Bool) -&amp;gt; (Char -&amp;gt; Bool) -&amp;gt; Char -&amp;gt; t))
+    In the first argument of `($)&#39;, namely `translate_helper&#39;
+    In the expression: translate_helper $ enumerate xs
+    In the definition of `translate_java&#39;:
+        translate_java xs
+                         = translate_helper $ enumerate xs
+                         where
+                             translate_helper [] = []
+                             translate_helper ((a, num) : xs)
+                                                | num == 1 and Char.isUpper a
+                                                = error &quot;cannot start with upper
+&quot;
+                                                | Char.isUpper a
+                                                = &#39;_&#39; : Char.toLower a : transla
+te_helper xs
+                                                | otherwise = a : translate_help
+er xs
+Failed, modules loaded: none.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Any explanation of what&#39;s going on here would be great.  I really don&#39;t understand where &quot;(Num (([Bool] -&gt; Bool) -&gt; (Char -&gt; Bool) -&gt; Char -&gt; t))&quot; is coming from.  I&#39;d think the type declaration for translate_helper would be something like [(a,b)] -&gt; [a]?&lt;/p&gt;
+
+        </summary>
+    </entry>
+    <entry>
+        <id>http://stackoverflow.com/q/7867290</id>
+        <re:rank scheme="http://stackoverflow.com">1</re:rank>
+        <title type="text">FreeGlut does not work in ghci</title>
+        <category scheme="http://stackoverflow.com/feeds/tag/haskell/tags" term="haskell"/><category scheme="http://stackoverflow.com/feeds/tag/haskell/tags" term="ghci"/><category scheme="http://stackoverflow.com/feeds/tag/haskell/tags" term="freeglut"/>
+        <author>
+            <name>user1009658</name>
+            <uri>http://stackoverflow.com/users/1009658</uri>
+        </author>
+        <link rel="alternate" href="http://stackoverflow.com/questions/7867290/freeglut-does-not-work-in-ghci" />
+        <published>2011-10-23T16:03:09Z</published>
+        <updated>2011-10-28T20:00:37Z</updated>
+        <summary type="html">
+            &lt;p&gt;I wrote a small program using the &quot;Glut&quot;&lt;/p&gt;
+...
+
+*** dcorking: [squeaksobot] has a bug that makes it announce old unseen items that get updated
+***** log
+http://feedvalidator.org/check.cgi?url=http%3A%2F%2Fstackoverflow.com%2Ffeeds%2Ftag%2Fsqueak%2Bor%2Bpharo%2Bor%2Bsmalltalk
+FEED Validator
+FOR ATOM AND RSS AND KML
+ 
+Congratulations!
+
+ This is a valid Atom 1.0 feed.
+
+Recommendations
+
+This feed is valid, but interoperability with the widest range of feed readers could be improved by implementing the following recommendations.
+
+line 2, column 0: Use of unknown namespace: http://purl.org/atompub/rank/1.0 [help]
+
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:creativeCommons="http://back ...
+Source: http://stackoverflow.com/feeds/tag/squeak%2Bor%2Bpharo%2Bor%2Bsmalltalk
+
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:creativeCommons="http://backend.userland.com/creativeCommonsRssModule" xmlns:re="http://purl.org/atompub/rank/1.0">
+   <title type="text">active questions tagged squeak+or+pharo+or+smalltalk - Stack Overflow</title>
+   <link rel="self" href="http://stackoverflow.com/feeds/tag/squeak+or+pharo+or+smalltalk" type="application/atom+xml" />
+   <link rel="alternate" href="http://stackoverflow.com/questions/tagged/?tagnames=squeak%2bor%2bpharo%2bor%2bsmalltalk&amp;sort=active" type="text/html" />
+   <subtitle>most recent 30 from stackoverflow.com</subtitle>
+   <updated>2011-02-21T16:21:01Z</updated>
+   <id>http://stackoverflow.com/feeds/tag/squeak+or+pharo+or+smalltalk</id>
+   <creativeCommons:license>http://www.creativecommons.org/licenses/by-nc/2.5/rdf</creativeCommons:license>
+ 
+   <entry>
+       <id>http://stackoverflow.com/questions/149042/would-you-start-learning-smalltalk</id>
+       <re:rank scheme="http://stackoverflow.com">43</re:rank>
+       <title type="text">Would you start learning Smalltalk?</title>
+       <category scheme="http://stackoverflow.com/feeds/tag/squeak+or+pharo+or+smalltalk/tags" term="smalltalk"/><category scheme="http://stackoverflow.com/feeds/tag/squeak+or+pharo+or+smalltalk/tags" term="seaside"/>
+       <author>
+           <name>Christoph Schiessl</name>
+           <uri>http://stackoverflow.com/users/20467</uri>
+       </author>
+       <link rel="alternate" href="http://stackoverflow.com/questions/149042/would-you-start-learning-smalltalk" />
+       <published>2008-09-29T14:57:25Z</published>
+       <updated>2011-02-21T12:08:37Z</updated>
+       <summary type="html">
+           &lt;p&gt;My questions is simple!&lt;/p&gt;
+ 
+&lt;ol&gt;
+&lt;li&gt;Would you start learning Smalltalk if you had the time? Why? Why not?&lt;/li&gt;
+&lt;li&gt;Do you already know Smalltalk? Why would you recommend Smalltalk? Why not?&lt;/li&gt;
+&lt;/ol&gt;
+ 
+&lt;p&gt;Personally I&#39;m a Ruby on Rails programmer and I really like it. However, I&#39;m thinking about Smalltalk because I read various blogs and some people are calling Ruby something like &quot;Smalltalk Light&quot;. The second reason why I&#39;m interested in Smalltalk is &lt;a href=&quot;http://seaside.st&quot; rel=&quot;nofollow&quot;&gt;Seaside&lt;/a&gt;.&lt;/p&gt;
+ 
+&lt;p&gt;Maybe someone has made the same transition before?&lt;/p&gt;
+ 
+&lt;p&gt;&lt;strong&gt;EDIT:&lt;/strong&gt; Actually, what got me most excited about Smalltalk/Seaside is the following Episode of WebDevRadio: &lt;a href=&quot;http://www.webdevradio.com/index.php?id=77&quot; rel=&quot;nofollow&quot;&gt;Episode 52: Randal Schwartz on Seaside (among other things)&lt;/a&gt;&lt;/p&gt;
+ 
+       </summary>
+   </entry>
+   
+   <entry>
+       <id>http://stackoverflow.com/questions/5061185/smalltalk-texteditor-widget-print-new-line</id>
+       <re:rank scheme="http://stackoverflow.com">1</re:rank>
+       <title type="text">smalltalk texteditor widget print new line</title>
+       <category scheme="http://stackoverflow.com/feeds/tag/squeak+or+pharo+or+smalltalk/tags" term="return"/><category scheme="http://stackoverflow.com/feeds/tag/squeak+or+pharo+or+smalltalk/tags" term="smalltalk"/><category scheme="http://stackoverflow.com/feeds/tag/squeak+or+pharo+or+smalltalk/tags" term="texteditor"/>
+       <author>
+           <name>smalltalkNoob</name>
+           <uri>http://stackoverflow.com/users/625810</uri>
+       </author>
+       <link rel="alternate" href="http://stackoverflow.com/questions/5061185/smalltalk-texteditor-widget-print-new-line" />
+       <published>2011-02-21T00:27:44Z</published>
+       <updated>2011-02-21T10:37:18Z</updated>
+       <summary type="html">
+           &lt;p&gt;I am using Cincom VisualWorks and using the TextEditor widget.  I am able to write data to this widget but for the life of me, I am unable to print new line (or carraige return) characters.  Using &quot;cr&quot; as in for &quot;Transcript: cr&quot; doesn&#39;t work in this widget.  Does anyone know what to do?&lt;/p&gt;
+ 
+       </summary>
+   </entry>
+   
+   <entry>
+       <id>http://stackoverflow.com/questions/3384229/how-do-i-get-user-input-in-the-self-language</id>
+       <re:rank scheme="http://stackoverflow.com">0</re:rank>
+       <title type="text">How do I get user input in the Self langry scheme="http://stackoverflow.com/feeds/tag/squeak+or+pharo+or+smalltalk/tags" term="smalltalk"/><category scheme="http://stackoverflow.com/feeds/tag/squeak+or+pharo+or+smalltalk/tags" term="self>
+           <name>Kim</name>
+           <uri>http://stackoverflow.com/users/2339</uri>
+     t;/pre&gt;
+ 
+       </summary>
+   </entry>
+   
+   <entry>
+       <id>http://stackoverflow.com/questions/5039492/where-did-the-self-language-get-its-name</id>
+       <re:rank scheme="http://stackoverflow.com">2</re:rank>
+     de-migration"/>
+       <author>
+           <name>parsifal</name>
+           <uri>http://stackoverflow.com/users/365027</uri>
+       </author>
+       <link rel="alternate" href="http://stackoverflow.com/questions/5026122/is-there-a-tool-for-translating-code-from-c-to-smalltalk" />
+       <published>2011-02-;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;there are software houses that use Smalltalk for d be the conjunction of specA and specB.  Then, specX is a generalization of specC only if both specA and specB are a generalization of specC.&lt;/em&gt;&lt;/p&gt;
+ 
+&lt;p&gt;And I thought the logic for disjunction would be&lt;/p&gt;
+ 
+&lt;p&gt;&lt;em&gttle type="text">where c      <title type="text">Seaside: list losing its content on update</titlate some internal state based on the selection. No need to redisplay anything. The problem is that after the selection and the AJAX re><category scheme="http://stackoverflow.com/feeds/tag/squeak+or+pharo+or+smalltalk/tags" term="seaside"/>
+       <author>
+           <name>Bernat Romagosa</name>
+         ://stackoverflow.com/users/88739</uri>
+       </author>
+           <published>2010-10-24T04:36:28Z</published>
+       <updated>2011-02-02T10:06:10Z</updated>
+       <summary type="html">
+           &lt;p&gt;Hi guy,&lt;/p&gt;
+ 
+&lt;p&gt;I need to build an interpreter in smalltalk language. It will interpret a simple language with few fixed instruction set, there are only 
+etc...
+
+***** better old item detection
+ignoring items with publish (creation) date older than
+last-seen-pub-date should help in some cases. But in the current feed
+package, there seems no way to get item publish date, as getItemDate
+is a synonym for getItemPublishDate and in the case of an atom feed it
+looks like this actually gets the updated date.
+http://hackage.haskell.org/packages/archive/feed/0.3.8/doc/html/src/Text-Feed-Query.html#getItemDate
+http://hackage.haskell.org/packages/archive/feed/0.3.8/doc/html/src/Text-Feed-Query.html#getItemPublishDate
+http://hackage.haskell.org/package/feed
+****** fix feed's atom pub date getter
+** unexplained irc ping timeouts
+** http-enumerator -> http-conduit
+** latest cmdargs
+** threaded flag for debian
+** fix make clean for virthualenv/hsenv
+** wishlist
+*** include version in ident
+*** better error logging
+**** separate error log ?
+**** clarify stdout/stderr policy
+*** home page
+*** hackagebot page on wiki ?
+*** wait for finish pending announcements on exit ? remove delay hack
+**** on max iterations
+**** on interrupt & other errors
+*** report final stats on exit
+*** can still flood freenode on occasion
+*** --include/--exclude regexp to filter items
+*** allow / in replace pattern
+*** make it easy to insert color codes with --replace
+
+*** should be able to handle encoding errors gracefully when LANG is not set
+2011-03-24 16:27:39 PDT: <-:lambdabot!~lambdabot@li85-105.members.linode.com PRIVMSG #haskell :http://conal.net/blog/posts/everything-is-a-function-in-haskell/
+2011-03-24 16:27:39 PDT: <-:lambdabot!~lambdabot@li85-105.members.linode.com PRIVMSG #haskell :Title: Conal Elliott 2011-03-24 16:27:39 PDT: rss2irc error: run died with: <stdout>: commitBuffer: invalid argument (Invalid or incomplete multibyte or wide character), exiting
+*** idle timer should ignore messages from other bots
+*** strip html before truncating to max length, if not already doing so
+*** keep first part of email addresses instead of stripping entirely ?
+*** show <angle-bracketed content> ?
+*** link shortening ?
+   http://code.google.com/p/bitly-api/wiki/ApiDocumentation
+*** announce on multiple channels ?
+*** aggregate multiple feeds/configs/connections into a single bot ?
+*** global bot registry/error logging ?
+* misc
+** relationships
+*** freenode
+**** 200907 nalioth: what are these bots, triggering mass joins, please stagger
+**** 20090728 staggered startup, notified nalioth, explained again to sportchick, switched to cron-based one-minute-staggered restarts
+
+[2.22pm] <SportChick>
+sm: are these your bots?
+[2:22pm] <sm>
+hello SportChick .. yes
+[2:23pm] <sm>
+nalioth advised me a few days ago they were triggering your mass join alarm.. I have staggered their startup now
+[2:24pm] <SportChick>
+what are they for?
+[2:25pm] <SportChick>
+sm: ^
+[2:25pm] <sm>
+they are mainly to test the open-source rss2irc project I work on, also to privately test configurations of public bots I maintain (hackagebot, darcscommitbot etc.), and a couple that are personally useful
+[2:25pm] <sm>
+eg pandocbot watches my branch of the pandoc project
+[2:25pm] <SportChick>
+why do you need so many?
+[2:26pm] <sm>
+rss2irc by design watches only one feed
+[2:26pm] <sm>
+I hoped they would have no impact. Are they causing any problems ?
+[2:31pm] <sm>
+I hope these answers are clear. rss2irc watches one rss feed with one bot. Most of them are commitbots. Some I hope to move to public channels after shakedown here. so* announces stackoverflow.com questions. lagigsbot announces craiglist computer gigs in my area.
+[2:33pm] <SportChick>
+I understand what you're saying.  I will need to discuss it with other staff and get back to you.  Generally we don't allow so many bots - too often they are used onerously. 
+[2:34pm] <SportChick>
+(I'm not saying you have ill intent, but I don't want you to have to explain this separately to 30-some-odd staff
+[2:36pm] <sm>
+ok, thank you. That would be great.
+[2:38pm] <sm>
+my goal was to make a single-use bot, zero config bot that has zero negative impact, so that setting up useful commitbots etc. is safe and routine
+
+**** 20090813 dropped bot groups, added squeak bots
+
+*** squeak
+** sourcegraph: http://joyful.com/darcsden/simon/rss2irc/raw/SourceGraph/rss2irc.html
+** thread management notes
+http://www.erlang.org/doc/
+http://hackage.haskell.org/packages/archive/pkg-list.html#cat:concurrency
+http://hackage.haskell.org/package/data-timeout
+http://hackage.haskell.org/package/unbounded-delays
+http://hackage.haskell.org/package/epass
+http://hackage.haskell.org/package/eprocess
+http://hackage.haskell.org/package/thespian *
+*** supervise - utilities for running threads and/or processes reliably, like a micro-Erlang/OTP
+https://gist.github.com/1272609
+
+data Frequency = PerSecond Int
+               | PerMinute Int
+               | PerHour Int
+               | PerDay Int
+               | PerWeek Int
+               | PerMonth Int
+               | PerYear Int
+
+-- | Repeat the given action forever, treating exceptions and hangs as
+--   normal termination, unless restart frequency exceeds any of the
+--   specified frequencies in which case throw an exception.
+restart  :: [Frequency] -> (IO a) -> IO a
+
+-- | A timer which must be reset every so often to prevent the current
+--   thread being killed.
+data Watchdog = ...something...
+
+type Interval = Int -- seconds
+
+-- | Run the given action as a subthread, passing it a watchdog timer with
+--   the given interval. If the watchdog timer ever expires, kill the
+--   subthread and throw an exception.
+watchThread :: Interval -> (Watchdog -> IO a) -> IO ()    -- runThreadWithWatchdog ? catchThreadHang ?
+
+-- | Run the given command as a subprocess, killing it and throwing an
+--   exception if it fails to keep pinging us back (via rpc, socket, tmp
+--   file or something) within the given interval.
+watchProcess :: Interval -> String -> IO ()
+** enumerator to abstract multiple copies in a file, & multiple polls ?
+*** enumerator docs
+    https://john-millikin.com/articles/understanding-iteratees/
+    http://www.mew.org/~kazu/proj/enumerator/
+    http://hackage.haskell.org/packages/archive/enumerator/0.4.14/doc/html/Data-Enumerator.html
+    http://hackage.haskell.org/packages/archive/enumerator/0.4.14/doc/html/Data-Enumerator-List.html
+    http://hackage.haskell.org/packages/archive/enumerator/0.4.14/doc/html/Data-Enumerator-Binary.html
+
+    Enumerators typically read from an external source (parser,
+    handle, random generator, etc). They feed chunks into an Iteratee
+    until the source runs out of data (triggering EOF) or the
+    iteratee finishes processing (Yields a value).
+
+    In cases where an enumerator acts as both a source and sink, the
+    resulting type is named an Enumeratee. Enumeratees have two input
+    types, “outer a” (aOut) and “inner a” (aIn).
+
+    [Iteratee is the] primary data type for this library, which
+    consumes input from a Stream until it either generates a value or
+    encounters an error. Rather than requiring all input at once, an
+    iteratee will return Continue when it is capable of processing
+    more data.  In general, iteratees begin in the Continue state. As
+    each chunk is passed to the continuation, the iteratee returns
+    the next step: Continue for more data, Yield when it's finished,
+    or Error to abort processing.
+
